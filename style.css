@@ -1,3 +1,13 @@
+:root {
+  --link-color: #FFC580;
+  --link-hover-color: #FFDFA1;
+  --back-color: #1E1E1E;
+  --text-color: #fff;
+  --caps-spacing: .01em;
+  --caps-font-size: .5rem;
+  --caps-line-height: 1.2em;
+}
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -17,10 +27,12 @@ html {
   font-family: sans-serif;
   line-height: 1.05em;
   font-size: 2em;
+  background-color: var(--back-color);
 }
 
 body {
   padding: .4rem .5rem .5rem ;
+  color: var(--text-color);
   }
 
 footer {
@@ -31,15 +43,71 @@ footer {
   display: flex;
   flex-wrap: wrap;
   row-gap: 0;
-  column-gap: .5em;
+  column-gap: .4em;
+
+  font-size: var(--caps-font-size);
+  line-height: var(--caps-line-height);
+  text-transform: uppercase;
+  letter-spacing: var(--caps-spacing);
+}
+
+a {
+  color: var(--link-color);
+  position: relative;
+  text-decoration: none;
+}
+
+a::after {
+  content: ''; 
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: .05em;
+  height: 1px; 
+  background-color: var(--link-color);
+  opacity: .6;
+}
+
+a:hover::after {
+  background-color: var(--link-hover-color);
+  opacity: .9;
+
+}
+
+a:hover {
+  color: var(--link-hover-color);
+}
+
+figure {
+  margin: .5em 0 .3em;
+  display: inline-block;
+}
+
+figcaption {
+  padding-top: .2em;
+  max-width: 100%;
+
+  font-size: var(--caps-font-size);
+  line-height: var(--caps-line-height);
+  text-transform: uppercase;
+  letter-spacing: var(--caps-spacing);
+}
+
+img {
+  width: 100%;
+  display: inline-block;
 }
 
 #links {
-  padding-top: .2em;
+  padding: .2em 0 ;
+}
+
+#my-photo {
+  max-width: 320px;
 }
 
 @media only screen and (max-width: 768px) {
   html {
-      font-size: 1.5em;
+      font-size: 1.75em;
   }
 }

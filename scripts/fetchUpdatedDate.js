@@ -11,13 +11,8 @@ async function fetchUpdatedDate() {
         const repoData = await response.json();
         const lastUpdatedDate = new Date(repoData.pushed_at);
         
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        const formattedDate = lastUpdatedDate.toLocaleDateString('en-GB', options).toLowerCase();
-        
-        // const day = String(lastUpdatedDate.getDate()).padStart(2, '0');
-        // const month = String(lastUpdatedDate.getMonth() + 1).padStart(2, '0'); // Месяцы в JavaScript начинаются с 0
-        // const year = lastUpdatedDate.getFullYear();
-        // const formattedDate = `${day}.${month}.${year}`;
+        const options = { year: 'numeric', month: 'short', day: 'numeric' };
+        const formattedDate = lastUpdatedDate.toLocaleDateString('en-GB', options);
 
         document.getElementById('updated').textContent = `updated: ${formattedDate}`;
     } catch (error) {
